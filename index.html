@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ISD Applicability Tool</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+	<img src="logo.png" alt="Company Logo" class="company-logo">
+        <h2>ISD Applicability Tool</h2>
+        
+        <label for="transactionType">Select Transaction Type:</label>
+        <select id="transactionType" onchange="handleTransactionType()">
+            <option value="">--Select--</option>
+            <option value="Service">Service</option>
+            <option value="Goods">Goods</option>
+            <option value="Capital Goods">Capital Goods</option>
+        </select>
+        <div id="transactionError" class="error hidden">Please select a valid transaction type.</div>
+        
+        <div id="commonServiceSection" class="hidden">
+            <label for="commonService">Is the service common to multiple branches?</label>
+            <select id="commonService">
+                <option value="">--Select--</option>
+                <option value="Common to all branches">Common to all branches</option>
+                <option value="Common to more than 1 branch">Common to more than 1 branch</option>
+                <option value="Related to specific branch">Related to specific branch</option>
+            </select>
+            <div id="commonServiceError" class="error hidden">Please select an option.</div>
+        </div>
+        
+        <button onclick="determineISD()">Check ISD Applicability</button>
+        <button onclick="resetForm()">Reset</button>
+        <div id="result"></div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
